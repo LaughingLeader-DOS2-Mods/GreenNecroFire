@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="54" minor="6" revision="0" build="0" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" value="c5c1d0a7-196b-4af9-aac8-549d55843708" type="22" />
+					<attribute id="Localized" value="False" type="19" />
+					<attribute id="EffectName" value="LLGREENFLAME_FX_Skills_Totem_Impact_Target_Root_NecroFire_01" type="22" />
+					<attribute id="Name" value="LLGREENFLAME_FX_Skills_Totem_Impact_Target_Root_NecroFire_01" type="23" />
+					<attribute id="SourceFile" value="Public/ZZZ_GreenNecroFire_0bc91e73-ce14-4d3f-934c-3024a8ba348d/Assets/Effects/Effects_Banks/LLGREENFLAME_FX_Skills_Totem_Impact_Target_Root_NecroFire_01.lsfx" type="30" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" value="9d13d7d5-82b9-4c23-97e5-8fa3052100b4" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="28ce282a-548d-4c9a-b013-da049515f7ab" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="e8f198f6-65c3-4f0c-9aa2-f3fcfae70323" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="e7e0f8e2-8464-4ced-8f43-ba0c17882a34" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="2f750306-8c57-4fef-92ee-3aa1269df701" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="61a83782-de04-4b94-9788-e14ff40a408d" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="7f2002e6-21eb-45d3-a2f5-bdbda8dce461" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="68d87499-7e04-4531-b299-61522df70498" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="a31711e9-4ad8-437d-be3a-cbbbe16d1fda" type="22" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

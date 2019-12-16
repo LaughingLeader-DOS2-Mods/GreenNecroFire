@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="54" minor="6" revision="0" build="0" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" value="229a0899-b8fa-4719-a6db-d0ed19cb9fca" type="22" />
+					<attribute id="Localized" value="False" type="19" />
+					<attribute id="EffectName" value="LLGREENFLAME_FX_Skills_NecroFireball_Projectile_01" type="22" />
+					<attribute id="Name" value="LLGREENFLAME_FX_Skills_NecroFireball_Projectile_01" type="23" />
+					<attribute id="SourceFile" value="Public/ZZZ_GreenNecroFire_0bc91e73-ce14-4d3f-934c-3024a8ba348d/Assets/Effects/Effects_Banks/LLGREENFLAME_FX_Skills_NecroFireball_Projectile_01.lsfx" type="30" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" value="3df41f0f-e96c-41b0-b400-e4f7af604bce" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="2f750306-8c57-4fef-92ee-3aa1269df701" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="289ec505-fb4d-4c0c-94f2-9b062695d0df" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="b59fbbbc-cbb6-41d5-b754-d06a36fa7181" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="775339d4-2ce3-473b-9a56-e582d6d5b70d" type="22" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

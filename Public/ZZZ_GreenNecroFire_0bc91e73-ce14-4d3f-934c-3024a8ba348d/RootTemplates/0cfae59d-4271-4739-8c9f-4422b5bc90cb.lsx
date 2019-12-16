@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="54" minor="6" revision="0" build="0" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" value="0cfae59d-4271-4739-8c9f-4422b5bc90cb" type="22" />
+					<attribute id="Name" value="SurfaceFireCloudCursed_Original_Backup" type="23" />
+					<attribute id="LevelName" value="" type="22" />
+					<attribute id="Type" value="surface" type="22" />
+					<attribute id="Flag" value="0" type="4" />
+					<attribute id="GroupID" value="0" type="5" />
+					<attribute id="VisualTemplate" value="" type="22" />
+					<attribute id="PhysicsTemplate" value="" type="22" />
+					<attribute id="Scale" value="1" type="6" />
+					<attribute id="HasGameplayValue" value="False" type="19" />
+					<attribute id="CameraOffset" value="0 0 0" type="12" />
+					<attribute id="DecalMaterial" value="b279a93b-4833-40e6-85ac-75766f22dffc" type="22" />
+					<attribute id="DefaultLifeTime" value="12" type="6" />
+					<attribute id="DamageWeapon" value="DamageSurface_Necrofire" type="22" />
+					<attribute id="DamageCharacters" value="True" type="19" />
+					<attribute id="DamageItems" value="True" type="19" />
+					<attribute id="Summon" value="84a171b0-c44d-4689-b8fc-25e32676cd76" type="22" />
+					<children>
+						<node id="Tags" />
+						<node id="LayerList">
+							<children>
+								<node id="Layers" />
+							</children>
+						</node>
+						<node id="InstanceVisual">
+							<children>
+								<node id="InstanceVisual">
+									<attribute id="Visual" value="da2052eb-3fac-46de-8a53-c98fb7d20b7a" type="22" />
+									<attribute id="Height" value="2 2" type="11" />
+									<attribute id="Rotation" value="0 0" type="8" />
+									<attribute id="Scale" value="4 4" type="11" />
+									<attribute id="GridSize" value="3" type="6" />
+									<attribute id="SpawnCell" value="100" type="4" />
+									<attribute id="RandomPlacement" value="0.3" type="6" />
+									<attribute id="SurfaceNeeded" value="0.1" type="6" />
+									<attribute id="SurfaceRadiusMax" value="0" type="6" />
+								</node>
+								<node id="InstanceVisual">
+									<attribute id="Visual" value="b415d031-ac61-4416-8dd4-5b0f547a22e0" type="22" />
+									<attribute id="Height" value="2 2" type="11" />
+									<attribute id="Rotation" value="0 0" type="8" />
+									<attribute id="Scale" value="2 3" type="11" />
+									<attribute id="GridSize" value="4" type="6" />
+									<attribute id="SpawnCell" value="50" type="4" />
+									<attribute id="RandomPlacement" value="0.3" type="6" />
+									<attribute id="SurfaceNeeded" value="0.1" type="6" />
+									<attribute id="SurfaceRadiusMax" value="0" type="6" />
+								</node>
+								<node id="InstanceVisual">
+									<attribute id="Visual" value="a6ab5d12-1956-4866-98bb-26d4ef226bda" type="22" />
+									<attribute id="Height" value="0 1" type="11" />
+									<attribute id="Rotation" value="0 360" type="8" />
+									<attribute id="Scale" value="1 4" type="11" />
+									<attribute id="GridSize" value="3" type="6" />
+									<attribute id="SpawnCell" value="100" type="4" />
+									<attribute id="RandomPlacement" value="1" type="6" />
+									<attribute id="SurfaceNeeded" value="0" type="6" />
+									<attribute id="SurfaceRadiusMax" value="0" type="6" />
+								</node>
+							</children>
+						</node>
+						<node id="IntroFX" />
+						<node id="FX" />
+						<node id="StatusData">
+							<children>
+								<node id="StatusData">
+									<attribute id="StatusId" value="NECROFIRE" type="22" />
+									<attribute id="Chance" value="1" type="6" />
+									<attribute id="Duration" value="12" type="6" />
+									<attribute id="Remove" value="False" type="19" />
+									<attribute id="OnlyWhileMoving" value="False" type="19" />
+									<attribute id="KeepAlive" value="True" type="19" />
+									<attribute id="ApplyToCharacters" value="True" type="19" />
+									<attribute id="ApplyToItems" value="True" type="19" />
+									<attribute id="VanishOnApply" value="False" type="19" />
+									<attribute id="Force" value="False" type="19" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="54" minor="6" revision="0" build="0" />
+	<region id="MaterialBank">
+		<node id="MaterialBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" value="c1f0012f-00b0-4817-bd9a-2df2dc4862c4" type="22" />
+					<attribute id="Localized" value="False" type="19" />
+					<attribute id="SourceFile" value="Public/Shared/Assets/Materials/Effects/RS3_FX_08x08_BiPlanar_Emissive_Surface.lsb" type="30" />
+					<attribute id="Name" value="FX_MPAF_Fire_E_Soft" type="23" />
+					<attribute id="MaterialName" value="RS3_FX_ST_FireSurfaceMesh_05_Green" type="22" />
+					<attribute id="MaterialType" value="0" type="1" />
+					<children>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="False" type="19" />
+							<attribute id="ParameterName" value="_OpacityFade" type="22" />
+							<attribute id="UniformName" value="_OpacityFade" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="1" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="AnimationSpeed" type="22" />
+							<attribute id="UniformName" value="FloatParameter_AnimationSpeed" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="24" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="False" type="19" />
+							<attribute id="ParameterName" value="VFrameCount" type="22" />
+							<attribute id="UniformName" value="FloatParameter_VFrameCount" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="8" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="UFrameCount" type="22" />
+							<attribute id="UniformName" value="FloatParameter_UFrameCount" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="16" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="False" type="19" />
+							<attribute id="ParameterName" value="BlackToGreyEXP" type="22" />
+							<attribute id="UniformName" value="FloatParameter_BlackToGreyEXP" type="22" />
+							<attribute id="GroupName" value="Color" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="1" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="False" type="19" />
+							<attribute id="ParameterName" value="GreyToWhiteEXP" type="22" />
+							<attribute id="UniformName" value="FloatParameter_GreyToWhiteEXP" type="22" />
+							<attribute id="GroupName" value="Color" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="1" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="GreyPos" type="22" />
+							<attribute id="UniformName" value="FloatParameter_GreyPos" type="22" />
+							<attribute id="GroupName" value="Color" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="0.2" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="EmisiveFactor" type="22" />
+							<attribute id="UniformName" value="FloatParameter_EmisiveFactor" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="10" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="AlphaFactor" type="22" />
+							<attribute id="UniformName" value="FloatParameter_AlphaFactor" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="1" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="PowerColor" type="22" />
+							<attribute id="UniformName" value="FloatParameter_PowerColor" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="463" type="2" />
+							<attribute id="Value" value="2" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="TextureMapPower" type="22" />
+							<attribute id="UniformName" value="FloatParameter_TextureMapPower" type="22" />
+							<attribute id="GroupName" value="Special" type="22" />
+							<attribute id="ShaderFlags" value="463" type="2" />
+							<attribute id="Value" value="1" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="MultWithOpacity" type="22" />
+							<attribute id="UniformName" value="FloatParameter_MultWithOpacity" type="22" />
+							<attribute id="GroupName" value="Special" type="22" />
+							<attribute id="ShaderFlags" value="463" type="2" />
+							<attribute id="Value" value="1.5" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="UseLerpInsteadGradient" type="22" />
+							<attribute id="UniformName" value="FloatParameter_UseLerpInsteadGradient" type="22" />
+							<attribute id="GroupName" value="Special" type="22" />
+							<attribute id="ShaderFlags" value="463" type="2" />
+							<attribute id="Value" value="1" type="6" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="LerpEmissiveMult" type="22" />
+							<attribute id="UniformName" value="FloatParameter_LerpEmissiveMult" type="22" />
+							<attribute id="GroupName" value="Special" type="22" />
+							<attribute id="ShaderFlags" value="463" type="2" />
+							<attribute id="Value" value="25" type="6" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="MinColor" type="22" />
+							<attribute id="UniformName" value="Vector3Parameter_MinColor" type="22" />
+							<attribute id="GroupName" value="Special" type="22" />
+							<attribute id="ShaderFlags" value="463" type="2" />
+							<attribute id="Value" value="0.002585825 0.1390225 2.3328E-05" type="12" />
+							<attribute id="IsColor" value="True" type="19" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="MaxColor" type="22" />
+							<attribute id="UniformName" value="Vector3Parameter_MaxColor" type="22" />
+							<attribute id="GroupName" value="Special" type="22" />
+							<attribute id="ShaderFlags" value="463" type="2" />
+							<attribute id="Value" value="0.06772459 0.9913929 0.0008046584" type="12" />
+							<attribute id="IsColor" value="True" type="19" />
+						</node>
+						<node id="VectorParameters">
+							<attribute id="Enabled" value="False" type="19" />
+							<attribute id="ParameterName" value="_SurfaceProperties" type="22" />
+							<attribute id="UniformName" value="_SurfaceProperties" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="1 1 0.9960784 0" type="13" />
+							<attribute id="IsColor" value="False" type="19" />
+						</node>
+						<node id="VectorParameters">
+							<attribute id="Enabled" value="False" type="19" />
+							<attribute id="ParameterName" value="AiGridProperties" type="22" />
+							<attribute id="UniformName" value="AiGridProperties" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="1 1 1 1" type="13" />
+							<attribute id="IsColor" value="False" type="19" />
+						</node>
+						<node id="VectorParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="Black" type="22" />
+							<attribute id="UniformName" value="Vector4Parameter_Black" type="22" />
+							<attribute id="GroupName" value="Color" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="0.01517524 0.1303523 0.006040593 1" type="13" />
+							<attribute id="IsColor" value="True" type="19" />
+						</node>
+						<node id="VectorParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="Grey" type="22" />
+							<attribute id="UniformName" value="Vector4Parameter_Grey" type="22" />
+							<attribute id="GroupName" value="Color" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="0.3344578 0.7817507 0.1360985 1" type="13" />
+							<attribute id="IsColor" value="True" type="19" />
+						</node>
+						<node id="VectorParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="White" type="22" />
+							<attribute id="UniformName" value="Vector4Parameter_White" type="22" />
+							<attribute id="GroupName" value="Color" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="Value" value="0.2195197 1 0.329729 1" type="13" />
+							<attribute id="IsColor" value="True" type="19" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" value="False" type="19" />
+							<attribute id="ParameterName" value="_SurfaceMask" type="22" />
+							<attribute id="UniformName" value="_SurfaceMask" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="ID" value="3d644f03-35d9-4819-bb56-dea978a3e975" type="22" />
+							<attribute id="IgnoreTexelDensity" value="True" type="19" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" value="True" type="19" />
+							<attribute id="ParameterName" value="TextureSide" type="22" />
+							<attribute id="UniformName" value="Texture2DParameter_TextureSide_DefaultWrapSampler" type="22" />
+							<attribute id="GroupName" value="" type="22" />
+							<attribute id="ShaderFlags" value="511" type="2" />
+							<attribute id="ID" value="c8bc7426-931a-49ab-8655-0fce11a77aa3" type="22" />
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

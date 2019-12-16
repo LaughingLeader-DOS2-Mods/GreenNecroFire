@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="54" minor="6" revision="0" build="0" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" value="4a5d22c4-f1f1-4831-9734-9175c8602e8a" type="22" />
+					<attribute id="Localized" value="False" type="19" />
+					<attribute id="EffectName" value="LLGREENFLAME_FX_Skills_Totem_Cast_Target_Totem_NecroFire_Hand_01" type="22" />
+					<attribute id="Name" value="LLGREENFLAME_FX_Skills_Totem_Cast_Target_Totem_NecroFire_Hand_01" type="23" />
+					<attribute id="SourceFile" value="Public/ZZZ_GreenNecroFire_0bc91e73-ce14-4d3f-934c-3024a8ba348d/Assets/Effects/Effects_Banks/LLGREENFLAME_FX_Skills_Totem_Cast_Target_Totem_NecroFire_Hand_01.lsfx" type="30" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" value="e7e0f8e2-8464-4ced-8f43-ba0c17882a34" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="958314e1-36b4-470a-8004-65d8a24bd51f" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="2f750306-8c57-4fef-92ee-3aa1269df701" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="816ab617-e39a-4443-8d2a-e8e34d65413d" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="27748a6b-eafd-439e-ac28-a97db987bb77" type="22" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

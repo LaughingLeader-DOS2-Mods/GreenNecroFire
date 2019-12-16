@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="54" minor="6" revision="0" build="0" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" value="a190159a-44d0-4086-9912-34748663a743" type="22" />
+					<attribute id="Localized" value="False" type="19" />
+					<attribute id="EffectName" value="RS3_FX_Char_ElementalDevil_Giant_NecroFire_A_Breath_01" type="22" />
+					<attribute id="Name" value="RS3_FX_Char_ElementalDevil_Giant_NecroFire_A_Breath_01" type="23" />
+					<attribute id="SourceFile" value="Public/ZZZ_GreenNecroFire_0bc91e73-ce14-4d3f-934c-3024a8ba348d/Assets/Effects/Effects_Banks/RS3_FX_Char_ElementalDevil_Giant_NecroFire_A_Breath_01.lsfx" type="30" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" value="e0492a5f-4c87-4f4c-be54-83cc963e71cb" type="22" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

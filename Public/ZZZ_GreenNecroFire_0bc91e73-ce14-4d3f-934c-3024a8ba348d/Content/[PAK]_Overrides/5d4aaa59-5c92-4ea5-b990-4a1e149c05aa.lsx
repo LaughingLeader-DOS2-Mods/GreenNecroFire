@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="54" minor="6" revision="0" build="0" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" value="f1029517-b949-453f-9cab-53d2377df391" type="22" />
+					<attribute id="Localized" value="False" type="19" />
+					<attribute id="EffectName" value="RS3_FX_Skills_Totem_Cast_Target_Totem_NecroFire_Root_01" type="22" />
+					<attribute id="Name" value="RS3_FX_Skills_Totem_Cast_Target_Totem_NecroFire_Root_01" type="23" />
+					<attribute id="SourceFile" value="Public/ZZZ_GreenNecroFire_0bc91e73-ce14-4d3f-934c-3024a8ba348d/Assets/Effects/Effects_Banks/RS3_FX_Skills_Totem_Cast_Target_Totem_NecroFire_Root_01.lsfx" type="30" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" value="244f09c2-7e6f-43b8-a704-7e582556b895" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="1430d4c6-ec23-4a28-ac8b-6d12162806e3" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="afe3f6da-bc98-4960-964c-ac0e72538c48" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="3926f80c-6d08-48b2-8c3d-d1dc1aa8e18f" type="22" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="54" minor="6" revision="0" build="0" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" value="9492b43e-4322-4dbc-9fa4-82a14d3d0cff" type="22" />
+					<attribute id="Localized" value="False" type="19" />
+					<attribute id="EffectName" value="LLGREENFLAME_FX_GP_Beams_NecroFireBeam_Loop_01" type="22" />
+					<attribute id="Name" value="LLGREENFLAME_FX_GP_Beams_NecroFireBeam_Loop_01" type="23" />
+					<attribute id="SourceFile" value="Public/ZZZ_GreenNecroFire_0bc91e73-ce14-4d3f-934c-3024a8ba348d/Assets/Effects/Effects_Banks/LLGREENFLAME_FX_GP_Beams_NecroFireBeam_Loop_01.lsfx" type="30" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" value="9d4978c2-78f7-4377-ad5e-c0f264b0ffa7" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="28ce282a-548d-4c9a-b013-da049515f7ab" type="22" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" value="f5b96fbf-c417-4201-83d5-fb5aa71eba81" type="22" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

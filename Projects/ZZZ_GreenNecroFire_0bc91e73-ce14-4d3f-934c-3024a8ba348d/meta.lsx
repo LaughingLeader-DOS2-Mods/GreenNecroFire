@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<save>
+    <header version="2" />
+    <version major="3" minor="6" revision="6" build="0" />
+    <region id="MetaData">
+        <node id="root">
+            <attribute id="Module" value="0bc91e73-ce14-4d3f-934c-3024a8ba348d" type="23" />
+            <attribute id="Name" value="ZZZ_GreenNecroFire" type="23" />
+            <attribute id="Type" value="Add-on" type="23" />
+            <attribute id="UUID" value="43bf2775-0082-4bf8-8c34-9090b4e52596" type="23" />
+        </node>
+    </region>
+</save>
