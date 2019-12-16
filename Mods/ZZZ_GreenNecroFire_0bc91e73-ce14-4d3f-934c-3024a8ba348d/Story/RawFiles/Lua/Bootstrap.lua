@@ -93,5 +93,5 @@ end
 if Ext.RegisterListener ~= nil then
     Ext.RegisterListener("ModuleLoading", ModuleLoad)
 else
-    Ext.Print("[LLGREENFLAME:Bootstrap.lua] [*WARNING*] Extender version is less than v36 (current: "..Ext.Version().." )! Stat overrides ain't happenin', chief.")
+    Ext.Print("[LLGREENFLAME:Bootstrap.lua] [*WARNING*] Extender version is less than v36! Stat overrides ain't happenin', chief.")
 end
