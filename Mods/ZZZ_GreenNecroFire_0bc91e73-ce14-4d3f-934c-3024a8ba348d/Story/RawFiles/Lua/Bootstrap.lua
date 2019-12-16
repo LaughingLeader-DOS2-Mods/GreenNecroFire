@@ -1,4 +1,5 @@
 local stat_overrides = {
+    --Skills
     Projectile_InfectiousFlame = {
         Template = "086f73c3-b7c7-42c0-bdbe-6e5ff52e3f91",
         PrepareEffect = "LLGREENFLAME_FX_Skills_Fire_Prepare_Voodoo_Root_02,KeepRot,Detach;LLGREENFLAME_FX_Skills_Fire_Prepare_Voodoo_Hand_01:Dummy_R_HandFX,Dummy_L_HandFX",
@@ -35,6 +36,7 @@ local stat_overrides = {
         CastEffect = "LLGREENFLAME_FX_Skills_NecroFire_Cast_LaserRay_Overhead_01:Dummy_OverheadFX;LLGREENFLAME_FX_GP_Beams_LaserRay_NecroFire_Beam_01,Beam:Dummy_OverheadFX,Dummy_Custom_Anim;LLGREENFLAME_FX_Skills_NecroFire_Cast_LaserRay_Attachment_01:Dummy_Custom_Anim",
         SurfaceType = "FireCloudCursed"
     },
+    -- Statuses
     INF_NECROFIRE = {
         StatusEffect = "LLGREENFLAME_FX_Char_ElementalDevil_NecroFire_A_01:Dummy_StatusFX",
         FormatColor = "Poison"
@@ -58,7 +60,8 @@ local stat_overrides = {
 stat_overrides["Projectile_EnemyFireball_Witch"] = stat_overrides["Projectile_EnemyFireball_Cursed"]
 
 local ModuleLoad = function ()
-    if _G["LeaderLib"] ~= nil then
+    if _G["LeaderLib"] ~= nil or Ext.IsModLoaded("LeaderLib_7e737d2f-31d2-4751-963f-be6ccc59cd0c") then
+        Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding green flame skills/statuses to use LeaderLib's icons.")
         Ext.StatSetAttribute("Projectile_InfectiousFlame", "Icon", "LLGREENFLAME_Skills_EpidemicOfFire")
         Ext.StatSetAttribute("Target_NecrofireInfusion", "Icon", "LLGREENFLAME_Skills_NecroFireinfusion")
         Ext.StatSetAttribute("INF_NECROFIRE", "Icon", "LLGREENFLAME_Skills_NecroFireinfusion")
@@ -68,9 +71,21 @@ local ModuleLoad = function ()
     end
     for statname,overrides in pairs(stat_overrides) do
         for property,value in pairs(overrides) do
-            Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding stat: " .. statname .. " [".. property .."] = \"".. value .."\"")
+            Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding stat: " .. statname .. " (".. property ..") = \"".. value .."\"")
             Ext.StatSetAttribute(statname, property, value)
         end
+    end
+    if Ext.StatGetAttribute("Projectile_InfectiousFlame", "DisplayName") == "Projectile_InfectiousFlame_DisplayName" then
+        Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_DisplayName with 'Projectile_InfectiousFlame_LLGREENFLAME_DisplayName'.")
+        Ext.StatSetAttribute("Projectile_InfectiousFlame", "DisplayName", "Projectile_InfectiousFlame_LLGREENFLAME_DisplayName")
+    end
+
+    if Ext.IsModLoaded("OdinbladePyromancer_aab53301-4f38-1d49-91f7-28dfa468084b") then
+        Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description'.")
+        Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
+    elseif Ext.StatGetAttribute("Projectile_InfectiousFlame", "Description") == "Projectile_InfectiousFlame_Description" then
+        Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Description'.")
+        Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
     end
 end
 
@@ -78,5 +93,5 @@ end
 if Ext.RegisterListener ~= nil then
     Ext.RegisterListener("ModuleLoading", ModuleLoad)
 else
-    
+    Ext.Print("[LLGREENFLAME:Bootstrap.lua] [*WARNING*] Extender version is less than v36 (current: "..Ext.Version().." )! Stat overrides ain't happenin', chief.")
 end
