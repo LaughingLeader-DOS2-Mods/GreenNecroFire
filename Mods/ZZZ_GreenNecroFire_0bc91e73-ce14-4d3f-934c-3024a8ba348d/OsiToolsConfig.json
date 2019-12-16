@@ -1,9 +1,7 @@
 {
-    "ExtendOsiris": true,
-    "Lua": true,
-    "UseCustomStats": false,
-    "UseCustomStatsPane": false,
-    "EnableFormulaOverrides": false,
-    "PreprocessStory": false,
-    "RequiredExtensionVersion": 32
+    "RequiredExtensionVersion": 36,
+    "FeatureFlags": [
+        "OsirisExtensions",
+        "Lua"
+    ]
 }
