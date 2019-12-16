@@ -1,0 +1,4 @@
+Key	Content
+Projectile_InfectiousFlame_LLGREENFLAME_DisplayName	<font color='#5bf37c'>Epidemic Of Fire</font>
+Projectile_InfectiousFlame_LLGREENFLAME_Description	Fire a <font color='#5bf37c'>cursed flame</font> which will fork on impact up to [1] times, dealing [2] and leaving a <font color='#5bf37c'>cursed fire surface</font> in its wake.
+Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description	Send a <font color='#5bf37c'>cursed flame</font> that will split on impact up to [1] times, dealing [2] and <font color='#fe6e27'>Scorching</font> hit <font color='#aa3938'>enemies</font>. <br><br>Leaves a <font color='#5bf37c'>Necrofire surface</font> behind.
