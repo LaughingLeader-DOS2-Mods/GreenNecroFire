@@ -3,6 +3,7 @@ SubGoalCombiner SGC_AND
 INITSECTION
 LLGREENFLAME_Updater_SetVersion("1.0.0.0");
 KBSECTION
+/*
 IF
 UserConnected(_ID, _Username, _)
 AND
@@ -15,7 +16,7 @@ THEN
 SysActivateGoal("LLGREENFLAME_Debug");
 TimerCancel("Timers_LLGREENFLAME_Debug");
 TimerLaunch("Timers_LLGREENFLAME_Debug", 2500);
-
+*/
 //REGION VERSIONING
 IF
 GameStarted(_Level, _)

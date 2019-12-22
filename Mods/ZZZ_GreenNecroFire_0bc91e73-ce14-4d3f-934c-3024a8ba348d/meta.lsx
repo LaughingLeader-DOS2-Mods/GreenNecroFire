@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <save>
     <header version="2" />
     <version major="3" minor="6" revision="6" build="0" />
@@ -9,7 +9,7 @@
                 <node id="ModuleInfo">
                     <attribute id="Author" value="LaughingLeader " type="30" />
                     <attribute id="CharacterCreationLevelName" value="" type="22" />
-                    <attribute id="Description" value="Makes all necrofire surfaces/clouds and related effects green.&lt;br&gt;If the OsiTools v36 or higher is present, necrofire-related skills will use the new green effects in a compatible way (works with overhauls).&lt;br&gt;If LeaderLib and OsiTools v36 or higher is present, new icons will be used for necrofire statuses and skills." type="30" />
+                    <attribute id="Description" value="Makes all necrofire surfaces/clouds and related effects green. If the OsiTools v36 or higher is present, necrofire-related skills will use the new green effects in a compatible way (works with overhauls). If LeaderLib and OsiTools v36 or higher is present, new icons will be used for necrofire statuses and skills." type="30" />
                     <attribute id="DescriptionName" value="Makes all necrofire surfaces/clouds and related effects green.&lt;br&gt;If the OsiTools v36 or higher is present, necrofire-related skills will use the new green effects in a compatible way (works with overhauls).&lt;br&gt;If LeaderLib and OsiTools v36 or higher is present, new icons will be used for necrofire statuses and skills." handle="h90bda901g0ec7g4592g9289g80b735490919" type="28" />
                     <attribute id="DisplayName" value="Green Necrofire" handle="h3ed1660egf279g4b07g9ad8gf13f7c08bb00" type="28" />
                     <attribute id="Folder" value="ZZZ_GreenNecroFire_0bc91e73-ce14-4d3f-934c-3024a8ba348d" type="30" />
