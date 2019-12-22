@@ -35,6 +35,11 @@ CharacterAddSkill(_Char, "Projectile_EnemyFireball_Cursed");
 CharacterAddSkill(_Char, "Projectile_EnemyFireball_Cursed_Insect");
 CharacterAddSkill(_Char, "Target_NecrofireInfusion");
 CharacterAddSkill(_Char, "Zone_EnemyLaserRayCursed");
+CharacterAddAbility(_Char, "FireSpecialist", 4);
+CharacterAddAbility(_Char, "EarthSpecialist", 4);
+CharacterAddAbility(_Char, "Summoning", 4);
+CharacterOverrideMaxSourcePoints(_Char, 3);
+CharacterAddSourcePoints(_Char, 3);
 
 IF
 TimerFinished("Timers_LLGREENFLAME_Debug")
