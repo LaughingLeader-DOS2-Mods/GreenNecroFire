@@ -4,35 +4,15 @@ INITSECTION
 
 KBSECTION
 IF
-GameModeStarted(_,0)
-THEN
-GoalCompleted;
-
-IF
-GameStarted(_,0)
-THEN
-GoalCompleted;
-
-IF
-GameStarted(_Region, 1)
+UserConnected(_ID, _Username, _)
 AND
-IsGameLevel(_Region, 1)
-THEN
-TimerCancel("Timers_LLGREENFLAME_Debug");
-TimerLaunch("Timers_LLGREENFLAME_Debug", 500);
-
-IF
-TimerFinished("Timers_LLGREENFLAME_Debug")
+StringContains(_Username, "Debug", _IsDebug)
 AND
-CharacterGetHostCharacter(_Char)
+StringContains(_Username, "LaughingLeader", _IsAuthor)
+AND
+IntegerMax(_IsDebug, _IsAuthor, 1)
 THEN
-CharacterAddSkill(_Char, "Projectile_InfectiousFlame");
-CharacterAddSkill(_Char, "Projectile_EnemyInfectiousFlame_Ooze");
-CharacterAddSkill(_Char, "Projectile_EnemyInfectiousFlame_Adrama");
-CharacterAddSkill(_Char, "Projectile_EnemyFireball_Cursed");
-CharacterAddSkill(_Char, "Projectile_EnemyFireball_Cursed_Insect");
-CharacterAddSkill(_Char, "Target_NecrofireInfusion");
-CharacterAddSkill(_Char, "Zone_EnemyLaserRayCursed");
+SysActivateGoal("LLGREENFLAME_Debug");
 EXITSECTION
 ENDEXITSECTION
 ParentTargetEdge "__Start"
