@@ -16,7 +16,7 @@ TimerCancel("Timers_LLGREENFLAME_Debug");
 TimerLaunch("Timers_LLGREENFLAME_Debug", 500);
 
 IF
-GameStarted(_Region, 1)
+GameStarted(_Region, _)
 AND
 IsGameLevel(_Region, 1)
 THEN
@@ -35,7 +35,18 @@ CharacterAddSkill(_Char, "Projectile_EnemyFireball_Cursed");
 CharacterAddSkill(_Char, "Projectile_EnemyFireball_Cursed_Insect");
 CharacterAddSkill(_Char, "Target_NecrofireInfusion");
 CharacterAddSkill(_Char, "Zone_EnemyLaserRayCursed");
-GoalCompleted;
+
+IF
+TimerFinished("Timers_LLGREENFLAME_Debug")
+AND
+NOT CharacterGetHostCharacter(_)
+THEN
+TimerLaunch("Timers_LLGREENFLAME_Debug", 2500);
+
+IF
+TimerFinished("Timers_LLGREENFLAME_Debug")
+THEN
+NOT DB_LLGREENFLAME_Debug_CheckRun(1);
 
 EXITSECTION
 
