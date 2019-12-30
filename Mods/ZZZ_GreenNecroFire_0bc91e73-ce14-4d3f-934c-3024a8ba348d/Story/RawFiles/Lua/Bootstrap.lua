@@ -60,6 +60,7 @@ local stat_overrides = {
 stat_overrides["Projectile_EnemyFireball_Witch"] = stat_overrides["Projectile_EnemyFireball_Cursed"]
 
 local ModuleLoad = function ()
+    Ext.Print("[ZZZ_GreenNecrofire:Bootstrap.lua] Module is loading.")
     if _G["LeaderLib"] ~= nil or Ext.IsModLoaded("LeaderLib_7e737d2f-31d2-4751-963f-be6ccc59cd0c") then
         Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding green flame skills/statuses to use LeaderLib's icons.")
         Ext.StatSetAttribute("Projectile_InfectiousFlame", "Icon", "LLGREENFLAME_Skills_EpidemicOfFire")
@@ -95,3 +96,5 @@ if Ext.RegisterListener ~= nil then
 else
     Ext.Print("[LLGREENFLAME:Bootstrap.lua] [*WARNING*] Extender version is less than v36! Stat overrides ain't happenin', chief.")
 end
+
+Ext.Print("[ZZZ_GreenNecrofire:Bootstrap.lua] Finished running.")
