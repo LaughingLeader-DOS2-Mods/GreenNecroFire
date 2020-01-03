@@ -7,7 +7,7 @@ local stat_overrides = {
     },
     Projectile_EnemyInfectiousFlame_Ooze = {
         Template = "6d719883-de5a-4441-b86b-34dadefb1778",
-        PrepareEffect = "LLLGREENFLAME_FX_Skills_Fire_Prepare_Voodoo_Root_02,KeepRot",
+        PrepareEffect = "LLGREENFLAME_FX_Skills_Fire_Prepare_Voodoo_Root_02,KeepRot",
         CastEffect = "LLGREENFLAME_FX_Skills_Fire_Cast_Beam_Fire_Hand_01:Dummy_BodyFX:cast"
     },
     Projectile_EnemyInfectiousFlame_Adrama = {
@@ -100,7 +100,12 @@ local function LLGREENFLAME_ModUpdated(id,author,past_version,new_version)
     -- end
 end
 
-function LLGREENFLAME_Ext_Debug(character)
+function LLGREENFLAME_Ext_Debug()
+    local character = CharacterGetHostCharacter()
+    CharacterAddAbility(character, "FireSpecialist", 8);
+    CharacterAddAbility(character, "EarthSpecialist", 8);
+    CharacterAddAbility(character, "Summoning", 8);
+    CharacterAddAttribute(character, "Memory", 10);
     CharacterAddSkill(character, "Projectile_InfectiousFlame");
     CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Ooze");
     CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Adrama");
@@ -108,11 +113,9 @@ function LLGREENFLAME_Ext_Debug(character)
     CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed_Insect");
     CharacterAddSkill(character, "Target_NecrofireInfusion");
     CharacterAddSkill(character, "Zone_EnemyLaserRayCursed");
-    CharacterAddAbility(character, "FireSpecialist", 4);
-    CharacterAddAbility(character, "EarthSpecialist", 4);
-    CharacterAddAbility(character, "Summoning", 4);
-    CharacterOverrideMaxSourcePoints(character, 3);
-    CharacterAddSourcePoints(character, 3);
+    ObjectSetFlag(character, "FTJ_RemoveSourceCollar", 0);
+    CharacterOverrideMaxSourcePoints(character, 12);
+    CharacterAddSourcePoints(character, 12);
 end
 
 local function SessionLoading()
