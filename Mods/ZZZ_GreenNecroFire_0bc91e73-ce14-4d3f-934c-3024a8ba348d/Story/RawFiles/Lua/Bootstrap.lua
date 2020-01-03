@@ -21,7 +21,8 @@ local stat_overrides = {
         CastEffect = "LLGREENFLAME_FX_Skills_NecroFireball_Cast_Fire_Hand_01:Dummy_R_HandFX:cast;LLGREENFLAME_FX_Skills_NecroFireball_Cast_Throw_Hand_01:Dummy_R_HandFX"
     },
     Projectile_EnemyFireball_Cursed_Insect = {
-        PrepareEffect = "LLGREENFLAME_FX_Char_Creatures_Giant_Insect_Fire_Prepare_01_Root,KeepRot;LLGREENFLAME_FX_Char_Creatures_Giant_Insect_Fire_Prepare_01:Dummy_L_HandFX,Dummy_R_HandFX",
+        Template = "58827195-8768-4711-9892-58144d11aa16",
+        PrepareEffect = "LLGREENFLAME_FXcharacter_Creatures_Giant_Insect_Fire_Prepare_01_Root,KeepRot;LLGREENFLAME_FXcharacter_Creatures_Giant_Insect_Fire_Prepare_01:Dummy_L_HandFX,Dummy_R_HandFX",
         CastEffect = "LLGREENFLAME_FX_Skills_NecroFireball_Cast_Fire_Hand_01:Dummy_CastFX:cast;LLGREENFLAME_FX_Skills_NecroFireball_Cast_Throw_Hand_01:Dummy_CastFX"
     },
     Target_NecrofireInfusion = {
@@ -38,11 +39,11 @@ local stat_overrides = {
     },
     -- Statuses
     INF_NECROFIRE = {
-        StatusEffect = "LLGREENFLAME_FX_Char_ElementalDevil_NecroFire_A_01:Dummy_StatusFX",
+        StatusEffect = "LLGREENFLAME_FXcharacter_ElementalDevil_NecroFire_A_01:Dummy_StatusFX",
         FormatColor = "Poison"
     },
     INF_NECROFIRE_G = {
-        StatusEffect = "LLGREENFLAME_FX_Char_ElementalDevil_Giant_NecroFire_A_01:Dummy_StatusFX;LLGREENFLAME_FX_Char_ElementalDevil_NecroFire_A_02:Dummy_L_HandFX,Dummy_R_HandFX",
+        StatusEffect = "LLGREENFLAME_FXcharacter_ElementalDevil_Giant_NecroFire_A_01:Dummy_StatusFX;LLGREENFLAME_FXcharacter_ElementalDevil_NecroFire_A_02:Dummy_L_HandFX,Dummy_R_HandFX",
         FormatColor = "Poison"
     },
     NECROFIRE = {
@@ -90,11 +91,53 @@ local ModuleLoad = function ()
     end
 end
 
+local function LLGREENFLAME_ModUpdated(id,author,past_version,new_version)
+    -- local version_is_less_than = _G["LeaderLib_Ext_VersionIsLessThan"]
+    -- if version_is_less_than ~= nil then
+    --     if version_is_less_than(past_version, 1,1,0,0) == true then
+            
+    --     end
+    -- end
+end
+
+local function SessionLoading()
+    if _G["LeaderLib_Ext_RegisterMod"] ~= nil then
+        local func = _G["LeaderLib_Ext_RegisterMod"]
+        func("GreenNecrofire", "LaughingLeader", 1,0,0,0, "0bc91e73-ce14-4d3f-934c-3024a8ba348d")
+    end
+
+    if _G["LeaderLib_ModUpdater"] ~= nil then
+        local update_table = _G["LeaderLib_ModUpdater"]
+        update_table["0bc91e73-ce14-4d3f-934c-3024a8ba348d"] = LLGREENFLAME_ModUpdated
+    end
+
+    if _G["LeaderLib_DebugInitCalls"] ~= nil then
+        local debug_table = _G["LeaderLib_DebugInitCalls"]
+        debug_table["0bc91e73-ce14-4d3f-934c-3024a8ba348d"] = LLGREENFLAME_ModUpdated
+    end
+end
+
 --v36 and higher
 if Ext.RegisterListener ~= nil then
+    Ext.RegisterListener("SessionLoading", SessionLoading)
     Ext.RegisterListener("ModuleLoading", ModuleLoad)
 else
     Ext.Print("[LLGREENFLAME:Bootstrap.lua] [*WARNING*] Extender version is less than v36! Stat overrides ain't happenin', chief.")
 end
 
 Ext.Print("[ZZZ_GreenNecrofire:Bootstrap.lua] Finished running.")
+
+function LLGREENFLAME_Ext_Debug(character)
+    CharacterAddSkill(character, "Projectile_InfectiousFlame");
+    CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Ooze");
+    CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Adrama");
+    CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed");
+    CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed_Insect");
+    CharacterAddSkill(character, "Target_NecrofireInfusion");
+    CharacterAddSkill(character, "Zone_EnemyLaserRayCursed");
+    CharacterAddAbility(character, "FireSpecialist", 4);
+    CharacterAddAbility(character, "EarthSpecialist", 4);
+    CharacterAddAbility(character, "Summoning", 4);
+    CharacterOverrideMaxSourcePoints(character, 3);
+    CharacterAddSourcePoints(character, 3);
+end
