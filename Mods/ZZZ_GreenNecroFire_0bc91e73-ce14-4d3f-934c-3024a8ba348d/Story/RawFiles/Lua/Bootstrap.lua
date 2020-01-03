@@ -59,6 +59,14 @@ local stat_overrides = {
 }
 
 stat_overrides["Projectile_EnemyFireball_Witch"] = stat_overrides["Projectile_EnemyFireball_Cursed"]
+-- Making the necrofire incarnate's fireball cursed
+stat_overrides["Projectile_IncarnateFireball"] = stat_overrides["Projectile_EnemyFireball_Cursed"]
+
+stat_overrides["Projectile_EnemyInfectiousFlame"] = stat_overrides["Projectile_InfectiousFlame"]
+stat_overrides["Projectile_IncarnateInfectiousFlame"] = stat_overrides["Projectile_InfectiousFlame"]
+stat_overrides["Projectile_EnemyInfectiousFlame_Puppet"] = stat_overrides["Projectile_InfectiousFlame"]
+
+stat_overrides["Projectile_IncarnateInfectiousFlame"] = stat_overrides["Target_NecrofireInfusion"]
 
 local ModuleLoad = function ()
     Ext.Print("[ZZZ_GreenNecrofire:Bootstrap.lua] Module is loading.")
@@ -102,20 +110,25 @@ end
 
 function LLGREENFLAME_Ext_Debug()
     local character = CharacterGetHostCharacter()
-    CharacterAddAbility(character, "FireSpecialist", 8);
-    CharacterAddAbility(character, "EarthSpecialist", 8);
-    CharacterAddAbility(character, "Summoning", 8);
-    CharacterAddAttribute(character, "Memory", 10);
-    CharacterAddSkill(character, "Projectile_InfectiousFlame");
-    CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Ooze");
-    CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Adrama");
-    CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed");
-    CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed_Insect");
-    CharacterAddSkill(character, "Target_NecrofireInfusion");
-    CharacterAddSkill(character, "Zone_EnemyLaserRayCursed");
-    ObjectSetFlag(character, "FTJ_RemoveSourceCollar", 0);
-    CharacterOverrideMaxSourcePoints(character, 12);
-    CharacterAddSourcePoints(character, 12);
+    if ObjectGetFlag(character, "LLGREENFLAME_DebugSet") == 0 then
+        CharacterApplyPreset(character, "Wizard_Act2");
+        CharacterAddAbility(character, "FireSpecialist", 8);
+        CharacterAddAbility(character, "EarthSpecialist", 8);
+        CharacterAddAbility(character, "Summoning", 8);
+        CharacterAddAttribute(character, "Memory", 10);
+        CharacterAddSkill(character, "Projectile_InfectiousFlame");
+        CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Ooze");
+        CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Adrama");
+        CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed");
+        CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed_Insect");
+        CharacterAddSkill(character, "Target_NecrofireInfusion");
+        CharacterAddSkill(character, "Zone_EnemyLaserRayCursed");
+        ObjectSetFlag(character, "FTJ_RemoveSourceCollar", 0);
+        CharacterOverrideMaxSourcePoints(character, 12);
+        CharacterAddSourcePoints(character, 12);
+        CharacterLevelUpTo(character, 11);
+        ObjectSetFlag(character, "LLGREENFLAME_DebugSet", 0);
+    end
 end
 
 local function SessionLoading()
