@@ -100,33 +100,6 @@ local function LLGREENFLAME_ModUpdated(id,author,past_version,new_version)
     -- end
 end
 
-local function SessionLoading()
-    if _G["LeaderLib_Ext_RegisterMod"] ~= nil then
-        local func = _G["LeaderLib_Ext_RegisterMod"]
-        func("GreenNecrofire", "LaughingLeader", 1,0,0,1, "0bc91e73-ce14-4d3f-934c-3024a8ba348d")
-    end
-
-    if _G["LeaderLib_ModUpdater"] ~= nil then
-        local update_table = _G["LeaderLib_ModUpdater"]
-        update_table["0bc91e73-ce14-4d3f-934c-3024a8ba348d"] = LLGREENFLAME_ModUpdated
-    end
-
-    if _G["LeaderLib_DebugInitCalls"] ~= nil then
-        local debug_table = _G["LeaderLib_DebugInitCalls"]
-        debug_table["0bc91e73-ce14-4d3f-934c-3024a8ba348d"] = LLGREENFLAME_ModUpdated
-    end
-end
-
---v36 and higher
-if Ext.RegisterListener ~= nil then
-    Ext.RegisterListener("SessionLoading", SessionLoading)
-    Ext.RegisterListener("ModuleLoading", ModuleLoad)
-else
-    Ext.Print("[LLGREENFLAME:Bootstrap.lua] [*WARNING*] Extender version is less than v36! Stat overrides ain't happenin', chief.")
-end
-
-Ext.Print("[ZZZ_GreenNecrofire:Bootstrap.lua] Finished running.")
-
 function LLGREENFLAME_Ext_Debug(character)
     CharacterAddSkill(character, "Projectile_InfectiousFlame");
     CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Ooze");
@@ -141,3 +114,30 @@ function LLGREENFLAME_Ext_Debug(character)
     CharacterOverrideMaxSourcePoints(character, 3);
     CharacterAddSourcePoints(character, 3);
 end
+
+local function SessionLoading()
+    if _G["LeaderLib_Ext_RegisterMod"] ~= nil then
+        local func = _G["LeaderLib_Ext_RegisterMod"]
+        func("GreenNecrofire", "LaughingLeader", 1,0,0,1, "0bc91e73-ce14-4d3f-934c-3024a8ba348d")
+    end
+
+    if _G["LeaderLib_ModUpdater"] ~= nil then
+        local update_table = _G["LeaderLib_ModUpdater"]
+        update_table["0bc91e73-ce14-4d3f-934c-3024a8ba348d"] = LLGREENFLAME_ModUpdated
+    end
+
+    if _G["LeaderLib_DebugInitCalls"] ~= nil then
+        local debug_table = _G["LeaderLib_DebugInitCalls"]
+        debug_table[#debug_table+1] = LLGREENFLAME_Ext_Debug
+    end
+end
+
+--v36 and higher
+if Ext.RegisterListener ~= nil then
+    Ext.RegisterListener("SessionLoading", SessionLoading)
+    Ext.RegisterListener("ModuleLoading", ModuleLoad)
+else
+    Ext.Print("[LLGREENFLAME:Bootstrap.lua] [*WARNING*] Extender version is less than v36! Stat overrides ain't happenin', chief.")
+end
+
+Ext.Print("[ZZZ_GreenNecrofire:Bootstrap.lua] Finished running.")
