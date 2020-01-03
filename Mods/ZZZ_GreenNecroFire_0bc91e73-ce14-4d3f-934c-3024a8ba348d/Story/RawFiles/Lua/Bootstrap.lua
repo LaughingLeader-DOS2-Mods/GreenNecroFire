@@ -103,7 +103,7 @@ end
 local function SessionLoading()
     if _G["LeaderLib_Ext_RegisterMod"] ~= nil then
         local func = _G["LeaderLib_Ext_RegisterMod"]
-        func("GreenNecrofire", "LaughingLeader", 1,0,0,0, "0bc91e73-ce14-4d3f-934c-3024a8ba348d")
+        func("GreenNecrofire", "LaughingLeader", 1,0,0,1, "0bc91e73-ce14-4d3f-934c-3024a8ba348d")
     end
 
     if _G["LeaderLib_ModUpdater"] ~= nil then
