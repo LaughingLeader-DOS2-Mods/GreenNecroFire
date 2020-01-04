@@ -122,19 +122,19 @@ local ModuleLoad = function ()
 
         icon_overrides["Projectile_Summon_InfectiousFire_Shorter"] = icon_overrides["Projectile_InfectiousFlame"]
         
-        stat_overrides["INF_NECROFIRE_INCARNATE_S"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_INCARNATE_G"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_BONEPILE"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_PLANT"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_CORPSE"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_OILBLOB"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_FIRESLUG"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_CONDOR"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_NEWT"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_POISONSLUG"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_SOULWOLF"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_TOY"]["FormatColor"] = "Poison"
-        stat_overrides["INF_NECROFIRE_CAT"]["FormatColor"] = "Poison"
+        stat_overrides["INF_NECROFIRE_INCARNATE_S"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_INCARNATE_G"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_BONEPILE"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_PLANT"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_CORPSE"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_OILBLOB"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_FIRESLUG"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_CONDOR"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_NEWT"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_POISONSLUG"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_SOULWOLF"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_TOY"] = { FormatColor = "Poison" }
+        stat_overrides["INF_NECROFIRE_CAT"] = { FormatColor = "Poison" }
 
         icon_overrides["INF_NECROFIRE_INCARNATE_S"] = icon_overrides["INF_NECROFIRE"]
         icon_overrides["INF_NECROFIRE_INCARNATE_G"] = icon_overrides["INF_NECROFIRE"]
@@ -187,6 +187,7 @@ local ModuleLoad = function ()
     if Ext.StatGetAttribute("Projectile_InfectiousFlame", "DisplayName") == "Projectile_InfectiousFlame_DisplayName" then
         if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_DisplayName with 'Projectile_InfectiousFlame_LLGREENFLAME_DisplayName'.") end
         Ext.StatSetAttribute("Projectile_InfectiousFlame", "DisplayName", "Projectile_InfectiousFlame_LLGREENFLAME_DisplayName")
+        Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "DisplayName", "Projectile_InfectiousFlame_LLGREENFLAME_DisplayName")
         total_changes = total_changes + 1
     end
     
@@ -194,11 +195,13 @@ local ModuleLoad = function ()
         Ext.Print("[LLGREENFLAME:Bootstrap.lua] Enabling OdinBlade Pyromancer Overhaul compatible localization overrides.")
         if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description'.") end
         Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
+        Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
         Ext.StatSetAttribute("Projectile_IncarnateFireball", "Description", "Projectile_LLGREENFLAME_CursedFireball_Odin_Description")
         total_changes = total_changes + 2
     elseif Ext.StatGetAttribute("Projectile_InfectiousFlame", "Description") == "Projectile_InfectiousFlame_Description" then
         if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Description'.") end
         Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
+        Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
         total_changes = total_changes + 1
     end
 
@@ -216,22 +219,22 @@ end
 
 function LLGREENFLAME_Ext_Debug()
     local character = CharacterGetHostCharacter()
-    CharacterAddAbility(character, "Summoning", 10);
     if ObjectGetFlag(character, "LLGREENFLAME_DebugSet") == 0 then
         CharacterLevelUpTo(character, 11);
         CharacterApplyPreset(character, "Wizard_Act2");
-        CharacterAddAbility(character, "FireSpecialist", 8);
-        CharacterAddAbility(character, "EarthSpecialist", 8);
-        CharacterAddAttribute(character, "Memory", 10);
         CharacterAddSkill(character, "Projectile_InfectiousFlame");
+        CharacterAddSkill(character, "Summon_Incarnate");
+        CharacterAddSkill(character, "Target_NecrofireInfusion");
         CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Ooze");
         CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Adrama");
         CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed");
         CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed_Insect");
-        CharacterAddSkill(character, "Summon_Incarnate");
-        CharacterAddSkill(character, "Target_NecrofireInfusion");
         CharacterAddSkill(character, "Zone_EnemyLaserRayCursed");
         CharacterAddSkill(character, "Projectile_IncarnateFireball");
+        CharacterAddAbility(character, "FireSpecialist", 8);
+        CharacterAddAbility(character, "EarthSpecialist", 8);
+        CharacterAddAbility(character, "Summoning", 10);
+        CharacterAddAttribute(character, "Memory", 10);
         ObjectSetFlag(character, "FTJ_RemoveSourceCollar", 0);
         CharacterOverrideMaxSourcePoints(character, 12);
         CharacterAddSourcePoints(character, 12);
