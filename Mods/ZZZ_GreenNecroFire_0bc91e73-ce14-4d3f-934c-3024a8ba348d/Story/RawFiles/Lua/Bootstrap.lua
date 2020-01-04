@@ -173,7 +173,7 @@ local ModuleLoad = function ()
     end
 
     local total_changes = 0
-    local total_skills = 0
+    local total_stats = 0
 
     for statname,overrides in pairs(stat_overrides) do
         for property,value in pairs(overrides) do
@@ -181,7 +181,7 @@ local ModuleLoad = function ()
             Ext.StatSetAttribute(statname, property, value)
             total_changes = total_changes + 1
         end
-        total_skills = total_skills + 1
+        total_stats = total_stats + 1
     end
 
     if Ext.StatGetAttribute("Projectile_InfectiousFlame", "DisplayName") == "Projectile_InfectiousFlame_DisplayName" then
@@ -202,7 +202,7 @@ local ModuleLoad = function ()
         total_changes = total_changes + 1
     end
 
-    Ext.Print("[LLGREENFLAME:Bootstrap.lua] Changed ("..tostring(total_changes)..") properties in ("..tostring(total_skills)..") stats to use the new effects/icons/names.")
+    Ext.Print("[LLGREENFLAME:Bootstrap.lua] Changed ("..tostring(total_changes)..") properties in ("..tostring(total_stats)..") stats to use the new effects/icons/names.")
 end
 
 local function LLGREENFLAME_ModUpdated(id,author,past_version,new_version)
