@@ -90,6 +90,10 @@ local icon_overrides = {
     PERMANENT_NECROFIRE = "LLGREENFLAME_Status_NecroFire"
 }
 
+icon_overrides["Projectile_EnemyInfectiousFlame"] = icon_overrides["Projectile_InfectiousFlame"]
+icon_overrides["Projectile_IncarnateInfectiousFlame"] = icon_overrides["Projectile_InfectiousFlame"]
+icon_overrides["Projectile_EnemyInfectiousFlame_Puppet"] = icon_overrides["Projectile_InfectiousFlame"]
+
 local function get_stat_override(statname)
     for k,v in pairs(stat_overrides) do
         if k == statname then
