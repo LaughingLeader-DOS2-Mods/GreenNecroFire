@@ -7,5 +7,5 @@ Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description	Send a <font color='#5b
 LLGREENFLAME_Mod_DisplayName	Green NecroFire
 LLGREENFLAME_Mod_Description	Makes all necrofire surfaces/clouds and related effects green.<br>If the OsiTools v36 or higher is present, necrofire-related skills will use the new green effects in a compatible way (works with overhauls).<br>If LeaderLib and OsiTools v36 or higher is present, new icons will be used for necrofire statuses and skills.
 Projectile_LLGREENFLAME_CursedFireball_DisplayName	<font color='#5bf37c'>Cursed Fireball</font>
-Projectile_LLGREENFLAME_CursedFireball_Description	Hurl a <font color='#5bf37c'>cursed orb of necrofire</font> at a target, dealing [1].<br>Leaves behind a <font color='#7f5cff'>cursed fire surface</font> at the point of impact.
+Projectile_LLGREENFLAME_CursedFireball_Description	Hurl a <font color='#5bf37c'>cursed orb of necrofire</font> at a target, dealing [1].<br>Leaves behind a <font color='#5bf37c'>cursed fire surface</font> at the point of impact.
 Projectile_LLGREENFLAME_CursedFireball_Odin_Description	Hurl a <font color='#5bf37c'>cursed orb of necrofire</font> at a target, dealing [1] and applying <font color="#fe6e27">Scorch</font> to all <font color="#aa3938">enemies</font>.<br>Leaves behind a <font color='#5bf37c'>cursed fire surface</font> at the point of impact.
