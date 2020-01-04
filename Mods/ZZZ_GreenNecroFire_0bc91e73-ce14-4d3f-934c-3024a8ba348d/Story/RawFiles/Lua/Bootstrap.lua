@@ -29,7 +29,7 @@ local stat_overrides = {
     },
     Projectile_EnemyFireball_Cursed_Insect = {
         Template = "58827195-8768-4711-9892-58144d11aa16",
-        PrepareEffect = "LLGREENFLAME_FXcharacter_Creatures_Giant_Insect_Fire_Prepare_01_Root,KeepRot;LLGREENFLAME_FXcharacter_Creatures_Giant_Insect_Fire_Prepare_01:Dummy_L_HandFX,Dummy_R_HandFX",
+        PrepareEffect = "LLGREENFLAME_FX_Char_Creatures_Giant_Insect_Fire_Prepare_01_Root,KeepRot;LLGREENFLAME_FX_Char_Creatures_Giant_Insect_Fire_Prepare_01:Dummy_L_HandFX,Dummy_R_HandFX",
         CastEffect = "LLGREENFLAME_FX_Skills_NecroFireball_Cast_Fire_Hand_01:Dummy_CastFX:cast;LLGREENFLAME_FX_Skills_NecroFireball_Cast_Throw_Hand_01:Dummy_CastFX",
         DisplayName = "Projectile_LLGREENFLAME_CursedFireball_DisplayName",
         Description = "Projectile_LLGREENFLAME_CursedFireball_Description"
@@ -50,12 +50,12 @@ local stat_overrides = {
     },
     -- Statuses
     INF_NECROFIRE = {
-        StatusEffect = "LLGREENFLAME_FXcharacter_ElementalDevil_NecroFire_A_01:Dummy_StatusFX",
+        StatusEffect = "LLGREENFLAME_FX_Char_ElementalDevil_NecroFire_A_01:Dummy_StatusFX",
         FormatColor = "Poison",
         Skills = "Projectile_EnemyFireball_Cursed;Projectile_IncarnateInfectiousFlame"
     },
     INF_NECROFIRE_G = {
-        StatusEffect = "LLGREENFLAME_FXcharacter_ElementalDevil_Giant_NecroFire_A_01:Dummy_StatusFX;LLGREENFLAME_FXcharacter_ElementalDevil_NecroFire_A_02:Dummy_L_HandFX,Dummy_R_HandFX",
+        StatusEffect = "LLGREENFLAME_FX_Char_ElementalDevil_Giant_NecroFire_A_01:Dummy_StatusFX;LLGREENFLAME_FX_Char_ElementalDevil_NecroFire_A_02:Dummy_L_HandFX,Dummy_R_HandFX",
         FormatColor = "Poison",
         Skills = "Projectile_EnemyFireball_Cursed;Projectile_IncarnateInfectiousFlame"
     },
@@ -82,8 +82,8 @@ local icon_overrides = {
     Projectile_InfectiousFlame = "LLGREENFLAME_Skills_EpidemicOfFire",
     Target_NecrofireInfusion = "LLGREENFLAME_Skills_NecroFireinfusion",
     Projectile_EnemyFireball_Cursed = "LLGREENFLAME_Skills_CursedFireball",
-    Projectile_IncarnateFireball = "LLPURPLEFIRE_Skills_CursedFireball",
-    Projectile_EnemyFireball_Witch = "LLPURPLEFIRE_Skills_CursedFireball",
+    Projectile_IncarnateFireball = "LLGREENFLAME_Skills_CursedFireball",
+    Projectile_EnemyFireball_Witch = "LLGREENFLAME_Skills_CursedFireball",
     INF_NECROFIRE = "LLGREENFLAME_Skills_NecroFireinfusion",
     INF_NECROFIRE_G = "LLGREENFLAME_Skills_NecroFireinfusion",
     NECROFIRE = "LLGREENFLAME_Status_NecroFire",
@@ -200,25 +200,28 @@ end
 
 function LLGREENFLAME_Ext_Debug()
     local character = CharacterGetHostCharacter()
+    CharacterAddAbility(character, "Summoning", 10);
     if ObjectGetFlag(character, "LLGREENFLAME_DebugSet") == 0 then
+        CharacterLevelUpTo(character, 11);
         CharacterApplyPreset(character, "Wizard_Act2");
         CharacterAddAbility(character, "FireSpecialist", 8);
         CharacterAddAbility(character, "EarthSpecialist", 8);
-        CharacterAddAbility(character, "Summoning", 8);
         CharacterAddAttribute(character, "Memory", 10);
         CharacterAddSkill(character, "Projectile_InfectiousFlame");
         CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Ooze");
         CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Adrama");
         CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed");
         CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed_Insect");
+        CharacterAddSkill(character, "Summon_Incarnate");
         CharacterAddSkill(character, "Target_NecrofireInfusion");
         CharacterAddSkill(character, "Zone_EnemyLaserRayCursed");
+        CharacterAddSkill(character, "Projectile_IncarnateFireball");
         ObjectSetFlag(character, "FTJ_RemoveSourceCollar", 0);
         CharacterOverrideMaxSourcePoints(character, 12);
         CharacterAddSourcePoints(character, 12);
-        CharacterLevelUpTo(character, 11);
         ObjectSetFlag(character, "LLGREENFLAME_DebugSet", 0);
     end
+    PartyAddGold(character, 30000)
 end
 
 local function SessionLoading()
