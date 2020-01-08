@@ -72,7 +72,7 @@ local stat_overrides = {
 }
 
 -- Making the necrofire incarnate's fireball cursed
-stat_overrides["Projectile_IncarnateFireball"] = stat_overrides["Projectile_EnemyFireball_Cursed"]
+--stat_overrides["Projectile_IncarnateFireball"] = stat_overrides["Projectile_EnemyFireball_Cursed"]
 
 stat_overrides["Projectile_EnemyInfectiousFlame"] = stat_overrides["Projectile_InfectiousFlame"]
 stat_overrides["Projectile_IncarnateInfectiousFlame"] = stat_overrides["Projectile_InfectiousFlame"]
@@ -88,7 +88,7 @@ local icon_overrides = {
     Target_NecrofireInfusion = "LLGREENFLAME_Skills_NecroFireinfusion",
     Projectile_EnemyFireball_Cursed = "LLGREENFLAME_Skills_CursedFireball",
     Projectile_EnemyFireball_Cursed_Insect = "LLGREENFLAME_Skills_CursedFireball",
-    Projectile_IncarnateFireball = "LLGREENFLAME_Skills_CursedFireball",
+    --Projectile_IncarnateFireball = "LLGREENFLAME_Skills_CursedFireball",
     Projectile_EnemyFireball_Witch = "LLGREENFLAME_Skills_CursedFireball",
     INF_NECROFIRE = "LLGREENFLAME_Skills_NecroFireinfusion",
     INF_NECROFIRE_G = "LLGREENFLAME_Skills_NecroFireinfusion",
@@ -202,7 +202,7 @@ local ModuleLoad = function ()
         if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description'.") end
         Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
         Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
-        Ext.StatSetAttribute("Projectile_IncarnateFireball", "Description", "Projectile_LLGREENFLAME_CursedFireball_Odin_Description")
+        --Ext.StatSetAttribute("Projectile_IncarnateFireball", "Description", "Projectile_LLGREENFLAME_CursedFireball_Odin_Description")
         total_changes = total_changes + 2
     elseif Ext.StatGetAttribute("Projectile_InfectiousFlame", "Description") == "Projectile_InfectiousFlame_Description" then
         if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Description'.") end
@@ -227,10 +227,11 @@ function LLGREENFLAME_Ext_Debug()
     local character = CharacterGetHostCharacter()
     if ObjectGetFlag(character, "LLGREENFLAME_DebugSet") == 0 then
         CharacterLevelUpTo(character, 11);
-        CharacterApplyPreset(character, "Wizard_Act2");
-        CharacterAddSkill(character, "Projectile_InfectiousFlame");
+        --CharacterApplyPreset(character, "Wizard_Act2");
         CharacterAddSkill(character, "Summon_Incarnate");
+        CharacterAddSkill(character, "Projectile_EnemyFireball");
         CharacterAddSkill(character, "Target_NecrofireInfusion");
+        CharacterAddSkill(character, "Projectile_InfectiousFlame");
         CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Ooze");
         CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Adrama");
         CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed");
