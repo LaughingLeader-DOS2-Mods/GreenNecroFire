@@ -1,7 +1,6 @@
 Ext.Require("StatOverrides.lua")
 
-
-local function LLGREENFLAME_ModUpdated(id,author,past_version,new_version)
+local function LLGREENFLAME_ModUpdated(past_version,new_version)
     -- local version_is_less_than = _G["LeaderLib_Ext_VersionIsLessThan"]
     -- if version_is_less_than ~= nil then
     --     if version_is_less_than(past_version, 1,1,0,0) == true then
