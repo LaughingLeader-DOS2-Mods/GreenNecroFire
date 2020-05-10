@@ -105,7 +105,7 @@ local function get_stat_override(statname)
     return nil
 end
 
-local ModuleLoad = function ()
+local function OverrideStats()
     Ext.Print("[ZZZ_GreenNecrofire:Bootstrap.lua] Module is loading.")
 
     --Larian's Pet Power Mod
@@ -157,7 +157,7 @@ local ModuleLoad = function ()
         icon_overrides["INF_NECROFIRE_CAT"] = icon_overrides["INF_NECROFIRE"]
     end
 
-    local debug_print = false
+    local debug_print = Ext.IsDeveloperMode()
 
     --LeaderLib_7e737d2f-31d2-4751-963f-be6ccc59cd0c
     if _G["LeaderLib"] ~= nil or Ext.IsModLoaded("7e737d2f-31d2-4751-963f-be6ccc59cd0c") then
@@ -197,82 +197,53 @@ local ModuleLoad = function ()
         total_changes = total_changes + 1
     end
     
-    if Ext.IsModLoaded("OdinbladePyromancer_aab53301-4f38-1d49-91f7-28dfa468084b") then
-        Ext.Print("[LLGREENFLAME:Bootstrap.lua] Enabling OdinBlade Pyromancer Overhaul compatible localization overrides.")
-        if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description'.") end
-        Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
-        Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
-        --Ext.StatSetAttribute("Projectile_IncarnateFireball", "Description", "Projectile_LLGREENFLAME_CursedFireball_Odin_Description")
-        total_changes = total_changes + 2
-    elseif Ext.StatGetAttribute("Projectile_InfectiousFlame", "Description") == "Projectile_InfectiousFlame_Description" then
-        if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Description'.") end
-        Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
-        Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
-        total_changes = total_changes + 1
-    end
+    if Ext.StatGetAttribute("Projectile_InfectiousFlame", "Description") == "Projectile_InfectiousFlame_Description" then
+		--OdinbladePyromancer_aab53301-4f38-1d49-91f7-28dfa468084b
+		local odinOverhaul = Ext.IsModLoaded("aab53301-4f38-1d49-91f7-28dfa468084b")
+		--Epic_Encounters_Core_63bb9b65-2964-4c10-be5b-55a63ec02fa0
+		local ee2Overhaul = Ext.IsModLoaded("63bb9b65-2964-4c10-be5b-55a63ec02fa0")
+
+		-- Find which mod is overwriting the other.
+		if odinOverhaul and ee2Overhaul then
+			--local purpleNecroNum = 0
+			local odinNum = 0
+			local ee2Num = 0
+			for i,uuid in ipairs(Ext.GetModLoadOrder()) do
+				if uuid == "aab53301-4f38-1d49-91f7-28dfa468084b" then
+					odinNum = i
+				elseif uuid == "63bb9b65-2964-4c10-be5b-55a63ec02fa0" then
+					ee2Num = i
+				end
+				-- if uuid == "c46b8710-e5f5-45f5-9485-a3993e11c951" then
+				-- 	purpleNecroNum = i
+				-- end
+			end
+
+			if odinNum > ee2Num then
+				ee2Overhaul = false
+			else
+				odinOverhaul = false
+			end
+		end
+		
+		if odinOverhaul then
+			if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description'."); end
+			Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
+			Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
+			--Ext.StatSetAttribute("Projectile_IncarnateFireball", "Description", "Projectile_LLGREENFLAME_CursedFireball_Odin_Description")
+		elseif ee2Overhaul then
+			if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_EE2_Description'."); end
+			Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_EE2_Description")
+			Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_EE2_Description")
+		else
+			if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Description'."); end
+			Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
+			Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
+		end
+		total_changes = total_changes + 2
+	end
 
     Ext.Print("[LLGREENFLAME:Bootstrap.lua] Changed ("..tostring(total_changes)..") properties in ("..tostring(total_stats)..") stats to use the new effects/icons/names.")
 end
 
-local function LLGREENFLAME_ModUpdated(id,author,past_version,new_version)
-    -- local version_is_less_than = _G["LeaderLib_Ext_VersionIsLessThan"]
-    -- if version_is_less_than ~= nil then
-    --     if version_is_less_than(past_version, 1,1,0,0) == true then
-            
-    --     end
-    -- end
-end
-
-function LLGREENFLAME_Ext_Debug()
-    local character = CharacterGetHostCharacter()
-    if ObjectGetFlag(character, "LLGREENFLAME_DebugSet") == 0 then
-        CharacterLevelUpTo(character, 11);
-        --CharacterApplyPreset(character, "Wizard_Act2");
-        CharacterAddSkill(character, "Summon_Incarnate");
-        CharacterAddSkill(character, "Projectile_EnemyFireball");
-        CharacterAddSkill(character, "Target_NecrofireInfusion");
-        CharacterAddSkill(character, "Projectile_InfectiousFlame");
-        CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Ooze");
-        CharacterAddSkill(character, "Projectile_EnemyInfectiousFlame_Adrama");
-        CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed");
-        CharacterAddSkill(character, "Projectile_EnemyFireball_Cursed_Insect");
-        CharacterAddSkill(character, "Zone_EnemyLaserRayCursed");
-        CharacterAddSkill(character, "Projectile_IncarnateFireball");
-        CharacterAddAbility(character, "FireSpecialist", 8);
-        CharacterAddAbility(character, "EarthSpecialist", 8);
-        CharacterAddAbility(character, "Summoning", 10);
-        CharacterAddAttribute(character, "Memory", 10);
-        ObjectSetFlag(character, "FTJ_RemoveSourceCollar", 0);
-        CharacterOverrideMaxSourcePoints(character, 12);
-        CharacterAddSourcePoints(character, 12);
-        ObjectSetFlag(character, "LLGREENFLAME_DebugSet", 0);
-    end
-    PartyAddGold(character, 30000)
-end
-
-local function SessionLoading()
-    if _G["LeaderLib_Ext_RegisterMod"] ~= nil then
-        local func = _G["LeaderLib_Ext_RegisterMod"]
-        func("GreenNecrofire", "LaughingLeader", 1,0,0,1, "0bc91e73-ce14-4d3f-934c-3024a8ba348d")
-    end
-
-    if _G["LeaderLib_ModUpdater"] ~= nil then
-        local update_table = _G["LeaderLib_ModUpdater"]
-        update_table["0bc91e73-ce14-4d3f-934c-3024a8ba348d"] = LLGREENFLAME_ModUpdated
-    end
-
-    if _G["LeaderLib_DebugInitCalls"] ~= nil then
-        local debug_table = _G["LeaderLib_DebugInitCalls"]
-        debug_table[#debug_table+1] = LLGREENFLAME_Ext_Debug
-    end
-end
-
---v36 and higher
-if Ext.RegisterListener ~= nil then
-    Ext.RegisterListener("SessionLoading", SessionLoading)
-    Ext.RegisterListener("ModuleLoading", ModuleLoad)
-else
-    Ext.Print("[LLGREENFLAME:Bootstrap.lua] [*WARNING*] Extender version is less than v36! Stat overrides ain't happenin', chief.")
-end
-
-Ext.Print("[ZZZ_GreenNecrofire:Bootstrap.lua] Finished running.")
+Ext.RegisterListener("ModuleLoading", OverrideStats)
