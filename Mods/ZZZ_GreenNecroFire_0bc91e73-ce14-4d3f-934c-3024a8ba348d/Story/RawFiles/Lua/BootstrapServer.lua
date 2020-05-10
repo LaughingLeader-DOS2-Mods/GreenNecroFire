@@ -43,8 +43,10 @@ local function SessionLoading()
 		if LeaderLib.RegisterModListener ~= nil then
 			LeaderLib.RegisterModListener("Updated", "0bc91e73-ce14-4d3f-934c-3024a8ba348d", LLGREENFLAME_ModUpdated)
 		end
-		if LeaderLib.AddDebugInitCall ~= nil then
-			LeaderLib.AddDebugInitCall(DebugInit)
+		if Ext.IsDeveloperMode() then
+			if LeaderLib.AddDebugInitCall ~= nil then
+				LeaderLib.AddDebugInitCall(DebugInit)
+			end
 		end
 	end
 end
