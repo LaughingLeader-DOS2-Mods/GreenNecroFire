@@ -246,4 +246,4 @@ local function OverrideStats()
     Ext.Print("[LLGREENFLAME:Bootstrap.lua] Changed ("..tostring(total_changes)..") properties in ("..tostring(total_stats)..") stats to use the new effects/icons/names.")
 end
 
-Ext.RegisterListener("ModuleLoading", OverrideStats)
+Ext.RegisterListener("StatsLoaded", OverrideStats)

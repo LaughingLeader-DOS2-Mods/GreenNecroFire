@@ -1,6 +1,6 @@
 {
     "ModTable": "GreenNecrofire",
-    "RequiredExtensionVersion": 44,
+    "RequiredExtensionVersion": 54,
     "FeatureFlags": [
         "Lua"
     ]
