@@ -106,11 +106,11 @@ local function get_stat_override(statname)
 end
 
 local function OverrideStats()
-    Ext.Print("[ZZZ_GreenNecrofire:Bootstrap.lua] Module is loading.")
+    Ext.Utils.Print("[ZZZ_GreenNecrofire:Bootstrap.lua] Module is loading.")
 
     --Larian's Pet Power Mod
-    if Ext.IsModLoaded("d2507d43-efce-48b8-ba5e-5dd136c715a7") then
-        Ext.Print("[LLGREENFLAME:Bootstrap.lua] Pet Power Larian mod detected. Overriding relevant stats.")
+    if Ext.Mod.IsModLoaded("d2507d43-efce-48b8-ba5e-5dd136c715a7") then
+        Ext.Utils.Print("[LLGREENFLAME:Bootstrap.lua] Pet Power Larian mod detected. Overriding relevant stats.")
         -- stat_overrides["Projectile_Summon_BomberProjectile_Necrofire"] = {
         --     Template = "c788b988-a772-47c7-ae4f-844a170435f3"
         -- }
@@ -157,13 +157,13 @@ local function OverrideStats()
         icon_overrides["INF_NECROFIRE_CAT"] = icon_overrides["INF_NECROFIRE"]
     end
 
-    local debug_print = Ext.IsDeveloperMode()
+    local debug_print = Ext.Debug.IsDeveloperMode()
 
     --LeaderLib_7e737d2f-31d2-4751-963f-be6ccc59cd0c
-    if _G["LeaderLib"] ~= nil or Ext.IsModLoaded("7e737d2f-31d2-4751-963f-be6ccc59cd0c") then
-        Ext.Print("[LLGREENFLAME:Bootstrap.lua] Enabling LeaderLib icons for necrofire skills/statuses.")
+    if Mods.LeaderLib or Ext.Mod.IsModLoaded("7e737d2f-31d2-4751-963f-be6ccc59cd0c") then
+        Ext.Utils.Print("[LLGREENFLAME:Bootstrap.lua] Enabling LeaderLib icons for necrofire skills/statuses.")
         for stat,value in pairs(icon_overrides) do
-            --Ext.StatSetAttribute(stat, "Icon", value)
+            --Ext.Stats.SetAttribute(stat, "Icon", value)
             local stat_override_entry = get_stat_override(stat)
             if stat_override_entry ~= nil then
                 stat_override_entry["Icon"] = value
@@ -183,32 +183,32 @@ local function OverrideStats()
 
     for statname,overrides in pairs(stat_overrides) do
         for property,value in pairs(overrides) do
-            if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding stat: " .. statname .. " (".. property ..") = \"".. value .."\"") end
-            Ext.StatSetAttribute(statname, property, value)
+            if debug_print then Ext.Utils.Print("[LLGREENFLAME:Bootstrap.lua] Overriding stat: " .. statname .. " (".. property ..") = \"".. value .."\"") end
+            Ext.Stats.SetAttribute(statname, property, value)
             total_changes = total_changes + 1
         end
         total_stats = total_stats + 1
     end
 
-    if Ext.StatGetAttribute("Projectile_InfectiousFlame", "DisplayName") == "Projectile_InfectiousFlame_DisplayName" then
-        if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_DisplayName with 'Projectile_InfectiousFlame_LLGREENFLAME_DisplayName'.") end
-        Ext.StatSetAttribute("Projectile_InfectiousFlame", "DisplayName", "Projectile_InfectiousFlame_LLGREENFLAME_DisplayName")
-        Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "DisplayName", "Projectile_InfectiousFlame_LLGREENFLAME_DisplayName")
+    if Ext.Stats.GetAttribute("Projectile_InfectiousFlame", "DisplayName") == "Projectile_InfectiousFlame_DisplayName" then
+        if debug_print then Ext.Utils.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_DisplayName with 'Projectile_InfectiousFlame_LLGREENFLAME_DisplayName'.") end
+        Ext.Stats.SetAttribute("Projectile_InfectiousFlame", "DisplayName", "Projectile_InfectiousFlame_LLGREENFLAME_DisplayName")
+        Ext.Stats.SetAttribute("Projectile_IncarnateInfectiousFlame", "DisplayName", "Projectile_InfectiousFlame_LLGREENFLAME_DisplayName")
         total_changes = total_changes + 1
     end
     
-    if Ext.StatGetAttribute("Projectile_InfectiousFlame", "Description") == "Projectile_InfectiousFlame_Description" then
+    if Ext.Stats.GetAttribute("Projectile_InfectiousFlame", "Description") == "Projectile_InfectiousFlame_Description" then
 		--OdinbladePyromancer_aab53301-4f38-1d49-91f7-28dfa468084b
-		local odinOverhaul = Ext.IsModLoaded("aab53301-4f38-1d49-91f7-28dfa468084b")
+		local odinOverhaul = Ext.Mod.IsModLoaded("aab53301-4f38-1d49-91f7-28dfa468084b")
 		--Epic_Encounters_Core_63bb9b65-2964-4c10-be5b-55a63ec02fa0
-		local ee2Overhaul = Ext.IsModLoaded("63bb9b65-2964-4c10-be5b-55a63ec02fa0")
+		local ee2Overhaul = Ext.Mod.IsModLoaded("63bb9b65-2964-4c10-be5b-55a63ec02fa0")
 
 		-- Find which mod is overwriting the other.
 		if odinOverhaul and ee2Overhaul then
 			--local purpleNecroNum = 0
 			local odinNum = 0
 			local ee2Num = 0
-			for i,uuid in ipairs(Ext.GetModLoadOrder()) do
+			for i,uuid in ipairs(Ext.Mod.GetLoadOrder()) do
 				if uuid == "aab53301-4f38-1d49-91f7-28dfa468084b" then
 					odinNum = i
 				elseif uuid == "63bb9b65-2964-4c10-be5b-55a63ec02fa0" then
@@ -227,23 +227,25 @@ local function OverrideStats()
 		end
 		
 		if odinOverhaul then
-			if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description'."); end
-			Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
-			Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
-			--Ext.StatSetAttribute("Projectile_IncarnateFireball", "Description", "Projectile_LLGREENFLAME_CursedFireball_Odin_Description")
+			if debug_print then Ext.Utils.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description'."); end
+			Ext.Stats.SetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
+			Ext.Stats.SetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Odin_Description")
+			--Ext.Stats.SetAttribute("Projectile_IncarnateFireball", "Description", "Projectile_LLGREENFLAME_CursedFireball_Odin_Description")
 		elseif ee2Overhaul then
-			if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_EE2_Description'."); end
-			Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_EE2_Description")
-			Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_EE2_Description")
+			if debug_print then Ext.Utils.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_EE2_Description'."); end
+			Ext.Stats.SetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_EE2_Description")
+			Ext.Stats.SetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_EE2_Description")
 		else
-			if debug_print then Ext.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Description'."); end
-			Ext.StatSetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
-			Ext.StatSetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
+			if debug_print then Ext.Utils.Print("[LLGREENFLAME:Bootstrap.lua] Overriding Projectile_InfectiousFlame_Description with 'Projectile_InfectiousFlame_LLGREENFLAME_Description'."); end
+			Ext.Stats.SetAttribute("Projectile_InfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
+			Ext.Stats.SetAttribute("Projectile_IncarnateInfectiousFlame", "Description", "Projectile_InfectiousFlame_LLGREENFLAME_Description")
 		end
 		total_changes = total_changes + 2
 	end
 
-    Ext.Print("[LLGREENFLAME:Bootstrap.lua] Changed ("..tostring(total_changes)..") properties in ("..tostring(total_stats)..") stats to use the new effects/icons/names.")
+    Ext.Utils.Print(string.format("[LLGREENFLAME:Bootstrap.lua] Changed (%s) properties in (%s) stats to use the new effects/icons/names.", total_changes, total_stats))
 end
 
-Ext.RegisterListener("StatsLoaded", OverrideStats)
+Ext.Events.StatsLoaded:Subscribe(function (e)
+    OverrideStats()
+end)
